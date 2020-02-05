@@ -19,6 +19,9 @@ const domFactory = {
                 </select> 
             </fieldset>
         </article>
+        <div class="buttons">       
+            <button id="send__button">Send</button>
+        </div>
         `
     },
     makeRep (rep) {
@@ -29,7 +32,12 @@ const domFactory = {
         form () {
             const formContainer = document.querySelector("#plea_form__container")
             let formHTML = domFactory.makeForm();
-            formContainer.innerHTML = formHTML
+            formContainer.innerHTML = formHTML;
+        },
+        plea (plea) {
+            const pleaContainer = document.querySelector("#plea_output_container");
+            pleaContainer.innerHTML = `<h2>Plea Output</h2>`
+            pleaContainer.innerHTML += plea
         }
     }
 }
