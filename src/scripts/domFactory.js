@@ -1,9 +1,5 @@
 import reps from './main.js'
-
-const randomYn = () => {
-    if (parseInt(Math.random()*2) === 1) {return true}
-    else {return false}
-}
+import randomGenerator from './randomGenerator.js'
 
 const domFactory = {
     makeForm () { 
@@ -20,6 +16,7 @@ const domFactory = {
             <fieldset>
                 <label for="repetitions">Repetitions</label>
                 <select name="repetitions" id="repetitions">
+                    <option value="rep__random">Random</option>
                     ${repHTML}
                 </select> 
             </fieldset>
@@ -36,7 +33,7 @@ const domFactory = {
     makePleas (plea, times) {
         let fullPlea = ""
         for (let i = 1; i < times; i ++) {
-            if (randomYn()) { // Is randomly true
+            if (randomGenerator.tf()) { // Is randomly true
                 fullPlea += `${plea.toUpperCase()} <br>`
             } else {
                 fullPlea += `${plea} <br>`
