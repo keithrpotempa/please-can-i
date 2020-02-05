@@ -1,12 +1,6 @@
+import reps from './main.js'
 
-// Creating a global array of reps from 1-100
-let reps = []
-
-for (let i = 1; i <= 100; i++) {
-    reps[i] = i;
-}
-
-const factory = {
+const domFactory = {
     makeForm () { 
         let repHTML = ""
         reps.forEach(rep => repHTML += this.makeRep(rep))
@@ -30,17 +24,14 @@ const factory = {
     makeRep (rep) {
         return `<option value="rep__${rep}">${rep}</option>
         `
+    },
+    renderer: {
+        form () {
+            const formContainer = document.querySelector("#plea_form__container")
+            let formHTML = domFactory.makeForm();
+            formContainer.innerHTML = formHTML
+        }
     }
 }
 
-const renderer = {
-    form () {
-        const formContainer = document.querySelector("#plea_form__container")
-        let formHTML = factory.makeForm();
-        formContainer.innerHTML = formHTML
-    }
-}
-
-renderer.form();
-
-{/* <option value="1">JavaScript</option> */}
+export default domFactory;
