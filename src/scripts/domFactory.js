@@ -1,5 +1,10 @@
 import reps from './main.js'
 
+const randomYn = () => {
+    if (parseInt(Math.random()*2) === 1) {return true}
+    else {return false}
+}
+
 const domFactory = {
     makeForm () { 
         let repHTML = ""
@@ -31,9 +36,9 @@ const domFactory = {
     makePleas (plea, times) {
         let fullPlea = ""
         for (let i = 1; i < times; i ++) {
-            if (i % 2 === 0) { // Is even
+            if (randomYn()) { // Is randomly true
                 fullPlea += `${plea.toUpperCase()} <br>`
-            } else { // Is odd
+            } else {
                 fullPlea += `${plea} <br>`
             }
         }
