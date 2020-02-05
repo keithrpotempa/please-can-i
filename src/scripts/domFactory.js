@@ -34,10 +34,10 @@ const domFactory = {
             let formHTML = domFactory.makeForm();
             formContainer.innerHTML = formHTML;
         },
-        plea (plea) {
+        plea (plea, times) {
             const pleaContainer = document.querySelector("#plea_output_container");
             pleaContainer.innerHTML = `<h2>Plea Output</h2>`
-            pleaContainer.innerHTML += plea
+            pleaContainer.innerHTML += `${plea} <br>`.repeat(times)
         }
     }
 }
